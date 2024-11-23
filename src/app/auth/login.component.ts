@@ -25,21 +25,20 @@ onSubmit(): void {
     userName: this.form.controls["userName"].value,
     password: this.form.controls["password"].value
   }
+  var loginResponse: LoginResponse;
   this.authService.login(loginRequest).subscribe(
     {
       next: result => 
         {
           loginResponse = result;
           console.log(loginResponse);
+          if (result.success) {
+            localStorage.setItem("veryImportantToken", result.token)
+          }
         },
       error: e => console.error(e)
     }
   )
-  var loginResponse: LoginResponse = {
-    success: this.form.controls["success"].value,
-    message: this.form.controls["message"].value,
-    token: this.form.controls["token"].value,
-  }
 }
 ngOnInit(): void {
   this.form = new FormGroup({

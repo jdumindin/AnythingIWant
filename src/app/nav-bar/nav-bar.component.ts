@@ -12,5 +12,8 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './nav-bar.component.scss'
 })
 export class NavBarComponent {
+onLogout(): string|any[]|import("@angular/router").UrlTree|null|undefined {
+throw new Error('Method not implemented.');
+}
 
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, RequiredValidator, UntypedFormGroup, Validators } from '@angular/forms';
 import { LoginRequest } from './login-request';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { AuthService } from './auth.service';
 import { LoginResponse } from './login-response';
@@ -33,7 +33,8 @@ onSubmit(): void {
           loginResponse = result;
           console.log(loginResponse);
           if (result.success) {
-            localStorage.setItem("veryImportantToken", result.token)
+            localStorage.setItem("veryImportantToken", result.token);
+            this.router.navigate(["/"]);
           }
         },
       error: e => console.error(e)
@@ -47,7 +48,7 @@ ngOnInit(): void {
   });
 }
   form!: UntypedFormGroup;
-  constructor(private authService: AuthService){
+  constructor(private authService: AuthService, private router: Router){
 
   }
 }

@@ -7,8 +7,8 @@
         <a mat-flat-button color="primary" [routerLink]="['/countries']">Countries</a>
         <a mat-flat-button color="primary" [routerLink]="['/cities']">Cities</a>
         <span class = "separator"></span>
-        @if (false) {
-          <a mat-flat-button color="primary" [routerLink]="onLogout()">Logout</a>
+        @if (isLoggedIn) {
+          <a mat-flat-button color="primary" (click)="onLogout()">Logout</a>
         }
         @else {
           <a mat-flat-button color="primary" [routerLink]="['/login']">Login</a>

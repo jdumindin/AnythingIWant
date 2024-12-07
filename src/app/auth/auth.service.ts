@@ -34,8 +34,8 @@ export class AuthService {
       }
     }));
   }
-  onLogout() {
+  logout() {
     localStorage.removeItem("veryImportantToken");
-    this.setAuthStatus(true);
+    this.setAuthStatus(false);
   }
 }

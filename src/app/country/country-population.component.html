@@ -1,5 +1,10 @@
-<h1>{{ countryPopulation.name }}'s Population</h1>
-<h2>{{ countryPopulation.population }}</h2>
+@if (countryPopulation) {
+    <h1>{{ countryPopulation.name }}'s Population</h1>
+    <h2>{{ countryPopulation.population }}</h2>
+}
+@else {
+    <p>Mom doesn't love you</p>
+}
 <body>
     <img src="csun.png" alt="CSUN">
 </body>
